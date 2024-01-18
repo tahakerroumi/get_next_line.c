@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 13:38:58 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/01/18 11:30:32 by tkerroum         ###   ########.fr       */
+/*   Created: 2024/01/18 11:46:44 by tkerroum          #+#    #+#             */
+/*   Updated: 2024/01/18 19:01:01 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*ft_free(char *buffer)
 {
@@ -88,15 +88,15 @@ static char	*rest_of_the_line(char	*static_line)
 
 char	*get_next_line(int fd)
 {
-	static char	*static_line;
+	static char	*static_line[1024];
 	char		*new_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	static_line = read_fd(fd, static_line);
-	if (!static_line)
+	static_line[fd] = read_fd(fd, static_line[fd]);
+	if (!static_line[fd])
 		return (NULL);
-	new_line = set_the_line(static_line);
-	static_line = rest_of_the_line(static_line);
+	new_line = set_the_line(static_line[fd]);
+	static_line[fd] = rest_of_the_line(static_line[fd]);
 	return (new_line);
 }
