@@ -6,17 +6,11 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:38:58 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/01/18 11:30:32 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:21:20 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-static char	*ft_free(char *buffer)
-{
-	free (buffer);
-	return (NULL);
-}
 
 static char	*read_fd(int fd, char *line)
 {
@@ -33,14 +27,12 @@ static char	*read_fd(int fd, char *line)
 		if (read_return == -1)
 		{
 			free(line);
-			ft_free(buffer);
+			return (free(buffer), NULL);
 		}
 		buffer[read_return] = '\0';
 		line = ft_strjoin(line, buffer);
 		if (!line)
-		{
-			ft_free(buffer);
-		}
+			return (free(buffer), NULL);
 	}
 	free (buffer);
 	return (line);

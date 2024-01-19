@@ -6,7 +6,7 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 13:43:41 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/01/18 11:44:03 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:00:54 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 2147
+#  define BUFFER_SIZE 7
 # endif
 
 # include <fcntl.h>

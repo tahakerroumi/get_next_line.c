@@ -6,7 +6,7 @@
 /*   By: tkerroum < tkerroum@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:59:45 by tkerroum          #+#    #+#             */
-/*   Updated: 2024/01/18 19:20:59 by tkerroum         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:01:46 by tkerroum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s1[i])
 	{
 		str[i] = s1[i];
+		i++;
 	}
 	j = 0;
 	while (s2[j])
